@@ -12,7 +12,7 @@ class userControllers {
 
         const { email, password, nom, ...body } = req.body
         console.log(req.body);
-        if (!email || !password || !nom || !prenom) return res.status(400).json({ statut: false, message: "les champs sont oblibagtoire" })
+        if (!email || !password || !nom) return res.status(400).json({ statut: false, message: "les champs sont oblibagtoire" })
         const exist = await User.findOne({ email })
         console.log("newUser exist", exist);
         if (exist) {
